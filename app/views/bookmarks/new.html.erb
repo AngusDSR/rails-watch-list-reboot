@@ -1,0 +1,14 @@
+<div class="d-flex align-items-center px-3">
+  <h1 class="col-2-md mt-2 ms-2">Add movie to <strong><u><%= @list.name %></u></strong></h1>
+  <p class="flex-grow-1"></p>
+  <%= link_to "Back", root_path, class: "col-2-md button-rounded bg-primary"  %>
+</div>
+<div class="wrapper bg-body mt-4">
+  <div class="container w-25 pt-2 pb-4 bg-body fs-4">
+    <%= simple_form_for [@list, @bookmark]  do |f| %>
+    <%= f.input :comment%>
+    <%= f.association :movie %>
+    <%= f.button :submit, "Add to list", class: "button-rounded bg-success" %>
+  <% end %>
+  </div>
+</div>

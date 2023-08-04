@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # set list index as the home page
+  root to: 'lists#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # right now we don't need to edit or update lists - further feature
+  resources :lists, except: %i[edit update] do
+    # nest bookmarks to lists on new and create routes needed
+    resources :bookmarks, only: %i[new create]
+  end
+  resources :bookmarks, only: :destroy
 end

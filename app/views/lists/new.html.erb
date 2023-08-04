@@ -1,0 +1,11 @@
+<div class="d-flex align-items-center px-3">
+  <h1 class="col-2-md mt-2 ms-2">Add new list</h1>
+  <p class="flex-grow-1"></p>
+  <%= link_to "Back", root_path, class: "col-2-md button-rounded bg-primary"  %>
+</div>
+<div class="container w-50 mt-4">
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit, "Save", class: "button-rounded bg-success" %>
+  <% end %>
+</div>

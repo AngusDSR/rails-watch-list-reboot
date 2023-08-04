@@ -1,0 +1,33 @@
+<div class="d-flex align-items-center px-3">
+  <h1 class="col-2-md mt-2 ms-2"><b><%= @list.name.capitalize %>:</b> <span class="text-info"><%= @list.bookmarks.size %> movies</span></h1>
+  <p class="flex-grow-1"></p>
+  <%= link_to "Back", root_path, class: "button-rounded bg-primary" %>
+</div>
+<div class="container">
+  <div class="pt-4">
+    <% @list.bookmarks.all.each do |bookmark| %>
+      <div class="col w-50 mb-3 p-3 rounded bg-black opacity-75 shadow-sm text-white">
+        <%= image_tag bookmark.movie.poster_url, alt: bookmark.movie.title, class: "poster" %>
+        <h4><%= bookmark.movie.title %>  <span class="fw-light text-info"><%= bookmark.movie.rating %></span></h4>
+        <p><%= bookmark.movie.overview %></p>
+        <div class="d-flex flex-row m-0 p-0">
+          <p class="ms-2"><span class="fs-4">"</span><%= bookmark.comment %><span class="fs-4">"</span></p>
+          <div class="flex-grow-1"></div>
+          <%= link_to "Delete",
+            bookmark_path(bookmark),
+            data: {turbo_method: :delete, turbo_confirm: "Remove movie from list?"},
+            class: "button-rounded border border-danger fw-semibold text-danger"
+          %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <%= link_to "Add movie to list", new_list_bookmark_path(@list), class: "col-2 me-3 button-rounded bg-info fw-bold" %>
+    <%= link_to "Remove list",
+      list_path(@list),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+      class: "col-2 button-rounded bg-danger fw-bold"
+    %>
+  </div>
+</div>

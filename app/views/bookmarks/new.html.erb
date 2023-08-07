@@ -6,8 +6,8 @@
 <div class="wrapper bg-body mt-4">
   <div class="container w-25 pt-2 pb-4 bg-body fs-4">
     <%= simple_form_for [@list, @bookmark]  do |f| %>
-    <%= f.input :comment%>
     <%= f.association :movie %>
+    <%= f.input :comment%>
     <%= f.button :submit, "Add to list", class: "button-rounded bg-success" %>
   <% end %>
   </div>

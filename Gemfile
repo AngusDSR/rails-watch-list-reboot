@@ -9,6 +9,8 @@ gem "rails", "~> 7.0.6"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+
+gem "dotenv-rails", groups: [:development, :test]
 gem "faker"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"

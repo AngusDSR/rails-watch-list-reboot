@@ -15,6 +15,7 @@ gem "faker"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
+gem "cloudinary"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"

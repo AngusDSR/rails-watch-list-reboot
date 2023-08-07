@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'lists#index'
 
   # right now we don't need to edit or update lists - further feature
-  resources :lists, except: %i[edit update] do
+  resources :lists do
     # nest bookmarks to lists on new and create routes needed
     resources :bookmarks, only: %i[new create]
   end

@@ -6,6 +6,7 @@
 <div class="container w-50 mt-4">
   <%= simple_form_for @list do |f| %>
     <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Save", class: "button-rounded bg-success" %>
   <% end %>
 </div>

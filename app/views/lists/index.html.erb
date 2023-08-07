@@ -8,8 +8,10 @@
   <% @lists.each do |list| %>
     <%= link_to list_path(list), class: "text-decoration-none text-dark" do %>
       <div class="card h-100 w-50 mb-3 me-2 p-2 pb-0 shadow-sm">
-      <% if list.movies.exists? %>
+      <% if list.movies.exists? && !list.photo.present? %>
         <%= image_tag list.movies.first.poster_url, class: "image-list" %>
+      <% elsif list.photo.present? %>
+        <%= cl_image_tag list.photo.key, class: "image-list" %>
       <% else %>
         <div class="image-list"></div>
       <% end %>

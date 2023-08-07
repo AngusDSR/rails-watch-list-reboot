@@ -1,9 +1,21 @@
-<div class="d-flex align-items-center px-3">
+<nav class="navbar d-flex align-items-center px-3">
   <h1 class="col-2-md mt-2 ms-2"><b><%= @list.name.capitalize %>:</b> <span class="text-info"><%= @list.bookmarks.size %> movies</span></h1>
   <p class="flex-grow-1"></p>
+  <%= link_to "Edit", edit_list_path(@list), class: "button-rounded bg-info me-3" %>
   <%= link_to "Back", root_path, class: "button-rounded bg-primary" %>
-</div>
+</nav>
+
 <div class="container">
+  <%# as a background to a div %>
+  <% if @list.photo.present? %>
+    <div class="hero"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>');"
+    >
+    </div>
+  <% end %>
+
+  <%# Single image %>
+  <%# cl_image_tag(@list.photo.key, width: 100, height: 100, crop: :thumb, gravity: :face) %>
   <div class="pt-4">
     <% @list.bookmarks.all.each do |bookmark| %>
       <div class="col w-50 mb-3 p-3 rounded bg-black opacity-75 shadow-sm text-white">
@@ -22,7 +34,7 @@
       </div>
     <% end %>
   </div>
-  <div class="row">
+  <div class="row mb-4">
     <%= link_to "Add movie to list", new_list_bookmark_path(@list), class: "col-2 me-3 button-rounded bg-info fw-bold" %>
     <%= link_to "Remove list",
       list_path(@list),

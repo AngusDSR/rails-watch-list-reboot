@@ -1,4 +1,4 @@
-<nav class="navbar d-flex align-items-center px-3">
+<nav class="navbar d-flex align-items-center px-3 mb-3">
   <h1 class="col-2-md mt-2 ms-2"><b><%= @list.name.capitalize %>:</b> <span class="text-info"><%= @list.bookmarks.size %> movies</span></h1>
   <p class="flex-grow-1"></p>
   <%= link_to "Edit", edit_list_path(@list), class: "button-rounded bg-info me-3" %>

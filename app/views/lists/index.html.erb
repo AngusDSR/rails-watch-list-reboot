@@ -1,10 +1,10 @@
-<div class="d-flex align-items-center px-3 mb-4">
+<div class="navbar d-flex align-items-center px-3 mb-3">
   <h1 class="col-2-md mt-2 ms-2"><b>Your movie lists</b></h1>
   <p class="flex-grow-1"></p>
   <%= link_to "Create a new list", new_list_path, class: "button-rounded bg-info" %>
 </div>
 <%= image_tag ["popcorn.jpg", "posters.jpg", "posters3.jpg", "projector.jpg", "remote.jpg", "scoff.jpg", "jaws.jpg", "Silence.jpg", "starwars.jpg", "breaky.jpg"].sample, alt: "Popcorn", class: "hero" %>
-<div class="container d-flex flex-wrap">
+<div class="container d-flex flex-wrap pt-4">
   <% @lists.each do |list| %>
     <%= link_to list_path(list), class: "text-decoration-none text-dark" do %>
       <div class="card h-100 w-50 mb-3 me-2 p-2 pb-0 shadow-sm">
